@@ -1,0 +1,22 @@
+Categorii :
+
+Marketing
+Salarii
+Tehnologie (software și hardware)
+Echipamente
+Mașini/Transport
+Chirie
+Utilități
+Consumabile
+Călătorii
+Diverse
+
+Structura factura :
+
+Furnizor : -
+Tip : - 
+Data : -
+Categorie : -
+Valoare: -
+
+Input : facturi + lista de praguri pentru fiecare categorie

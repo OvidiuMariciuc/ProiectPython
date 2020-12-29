@@ -1,0 +1,12 @@
+{
+   "Marketing":1000,
+   "Salarii":1000,
+   "Tehnologie":1000,
+   "Echipamente":1000,
+   "Transport":1000,
+   "Chirie":1000,
+   "Utilitati":1000,
+   "Consumabile":1000,
+   "Calatorii":1000,
+   "Diverse":1000
+}

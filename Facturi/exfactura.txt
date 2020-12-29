@@ -1,0 +1,7 @@
+{
+    "Furnizor":"DelGaz",
+    "Tip":"Factura Gaz",
+    "Data":"27/09/2020",
+    "Categorie":"Utilitati",
+    "Valoare":350
+}

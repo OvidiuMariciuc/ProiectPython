@@ -21,8 +21,17 @@ def citireFactura(fisierFactura):
     functia care adauga pragurile din fisierul text intr-un dictionar
     """
     with open(fisierFactura, "r", encoding='utf-8') as json_file:
-        factura_data = json.load(json_file)
-    return factura_data
+        try:
+            factura_data = json.load(json_file)
+        except Exception as e:
+            return 0
+    if "Furnizor" not in factura_data.keys() or "Tip" not in factura_data.keys() or "Data" not in factura_data.keys() or \
+            "Categorie" not in factura_data.keys() or "Valoare" not in factura_data.keys():
+        return -1
+    elif factura_data["Valoare"] == 0:
+        return -2
+    else:
+        return factura_data
 
 
 # print(praguri_data["Marketing"])
@@ -59,8 +68,18 @@ class Handler(FileSystemEventHandler):
             print("Am primit o factura noua - %s." % event.src_path)
             time.sleep(3)
             factura = citireFactura(event.src_path)
-            adaugareFactura(factura)
-            verifDepasire(dictionar_praguri)
+            if factura == -1:
+                print("\nFactura primita nu respecta formatul corespunzator! Incercati sa incarcati alta factura.\n")
+                # verifDepasire(dictionar_praguri)
+            elif factura == -2:
+                print(
+                    "\nFactura primita respecta formatul corespunzator dar valoarea acesteia este 0! Incercati sa incarcati alta factura.\n")
+                # verifDepasire(dictionar_praguri)
+            elif factura == 0:
+                print("\nFactura primita nu respecta formatul JSON! Incercati sa incarcati alta factura.\n")
+            else:
+                adaugareFactura(factura)
+                verifDepasire(dictionar_praguri)
 
 
 # stabilirea conexiunii cu baza de date
@@ -75,7 +94,7 @@ def adaugareFactura(factura_noua):
     try:
         data_factura = datetime.strptime(factura_noua["Data"], '%d/%m/%Y')
         data_factura = data_factura.date()
-        print(data_factura)
+        # print(data_factura)
 
         postgres_insert_query = """ INSERT INTO factura (furnizor, tip, Data, categorie, valoare) VALUES (%s,%s,%s,%s,%s)"""
         if factura_noua["Categorie"] == "":
@@ -87,11 +106,11 @@ def adaugareFactura(factura_noua):
 
         conn.commit()
         count = cursor.rowcount
-        print(count, "Inregistrare adaugata cu succes in tabela factura")
+        print(count, "factura noua a fost adaugata cu succes in baza de date")
 
     except (Exception, psycopg2.Error) as error:
         if (conn):
-            print("Inregistrarea nu a fost adaugata in tabela factura", error)
+            print("Factura noua nu a fost adaugata in baza de date", error)
 
 
 def verifDepasire(dictionar_praguri):
@@ -171,7 +190,7 @@ def verifDepasire(dictionar_praguri):
     suma = 0
     for row in data:
         suma = suma + row[0]
-    print("Suma totala obtinuta din factorile din categoria 'Utilitati' este", suma)
+    # print("Suma totala obtinuta din factorile din categoria 'Utilitati' este", suma)
     if suma > dictionar_praguri['Utilitati']:
         print("Atentie, bugetul alocat pentru categoria 'Utilitati' a fost depasit cu",
               suma - dictionar_praguri['Utilitati'], "RON.")
@@ -225,7 +244,7 @@ def afisareIstoric():
         print("A fost inregistrata o factura din categoria:", row[0], "in valoare de", row[1], "RON la data", row[2],
               ";")
     print(
-        "___________________________________________________________________________________________________")
+        "__________________________________________________________________________________________________")
 
 
 dictionar_praguri = citirePraguri("PraguriCategorii.txt")

@@ -2,6 +2,6 @@
     "Furnizor":"DelGaz",
     "Tip":"Factura Gaz",
     "Data":"27/09/2020",
-    "Categorie":"Calatorii",
-    "Valoare":2000
+    "Categorie":"Salarii",
+    "Valoare":1200
 }

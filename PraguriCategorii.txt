@@ -1,12 +1,12 @@
 {
-   "Marketing":1000,
-   "Salarii":1000,
-   "Tehnologie":1000,
-   "Echipamente":1000,
-   "Transport":1000,
-   "Chirie":1000,
-   "Utilitati":1000,
-   "Consumabile":1000,
-   "Calatorii":1000,
-   "Diverse":1000
+   "Marketing":10000,
+   "Salarii":50000,
+   "Tehnologie":20000,
+   "Echipamente":17000,
+   "Transport":6000,
+   "Chirie":4000,
+   "Utilitati":12000,
+   "Consumabile":5000,
+   "Calatorii":3000,
+   "Diverse":9000
 }

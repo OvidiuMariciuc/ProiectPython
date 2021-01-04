@@ -1,7 +1,7 @@
 {
-    "Furnizor":"DelGaz",
-    "Tip":"Factura Gaz",
-    "Data":"27/09/2020",
+    "Furnizor":"Apa-canal",
+    "Tip":"Factura Apa",
+    "Data":"28/09/2020",
     "Categorie":"1700",
     "Valoare":0
 }

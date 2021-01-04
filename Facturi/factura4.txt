@@ -1,7 +1,7 @@
 {
-    "Furnizor":"DelGaz",
-    "Tip":"Factura Gaz",
-    "Data":"27/09/2020",
+    "Furnizor":"Necunoscut",
+    "Tip":"Livrare laptop-uri",
+    "Data":"12/09/2020",
     "Categorie":"",
-    "Valoare":1500
+    "Valoare":3000
 }

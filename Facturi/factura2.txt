@@ -1,7 +1,7 @@
 {
-    "Furnizor":"DelGaz",
-    "Tip":"Factura Gaz",
-    "Data":"27/09/2020",
-    "Categorie":"Salarii",
-    "Valoare":1200
+    "Furnizor":"EON Romania",
+    "Tip":"Factura Curent",
+    "Data":"29/09/2020",
+    "Categorie":"Utilitati",
+    "Valoare":4000
 }

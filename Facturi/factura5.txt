@@ -1,7 +1,7 @@
 {
-    "Furnizor":"DelGaz",
-    "Tip":"Factura Gaz",
-    "Data":"27/09/2020",
+    "Furnizor":"Ivomarket",
+    "Tip":"Echipamente de protectie",
+    "Data":"15/07/2020",
     "Categorie":"Echipamente",
-    "Valoare":3000
+    "Valoare":20000
 }

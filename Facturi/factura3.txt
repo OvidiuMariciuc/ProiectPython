@@ -1,7 +1,7 @@
 {
-    "Furnizor":"DelGaz",
-    "Tip":"Factura Gaz",
-    "Data":"27/09/2020",
+    "Furnizor":"101Calatorii",
+    "Tip":"Calatorie in Franta",
+    "Data":"15/05/2020",
     "Categorie":"Calatorii",
-    "Valoare":2000
+    "Valoare":3500
 }

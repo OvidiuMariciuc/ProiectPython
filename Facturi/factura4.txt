@@ -1,7 +1,0 @@
-{
-    "Furnizor":"Necunoscut",
-    "Tip":"Livrare laptop-uri",
-    "Data":"12/09/2020",
-    "Categorie":"",
-    "Valoare":3000
-}

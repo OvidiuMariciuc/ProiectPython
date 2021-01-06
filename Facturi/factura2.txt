@@ -1,7 +1,0 @@
-{
-    "Furnizor":"EON Romania",
-    "Tip":"Factura Curent",
-    "Data":"29/09/2020",
-    "Categorie":"Utilitati",
-    "Valoare":4000
-}

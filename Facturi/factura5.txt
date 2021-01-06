@@ -1,7 +1,0 @@
-{
-    "Furnizor":"Ivomarket",
-    "Tip":"Echipamente de protectie",
-    "Data":"15/07/2020",
-    "Categorie":"Echipamente",
-    "Valoare":20000
-}

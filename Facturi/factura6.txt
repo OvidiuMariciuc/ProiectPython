@@ -1,6 +1,0 @@
-{
-    "Furnizor":"Palas",
-    "Data":"27/09/2020",
-    "Categorie":"",
-    "Valoare":1500
-}

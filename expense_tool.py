@@ -88,7 +88,7 @@ class Handler(FileSystemEventHandler):
 
 
 # stabilirea conexiunii cu baza de date
-conn = psycopg2.connect("dbname=facturi user=postgres password=root")
+conn = psycopg2.connect("dbname=factura user=postgres password=root")
 cursor = conn.cursor()
 
 
@@ -123,6 +123,9 @@ def verifDepasire(dictionar_praguri):
     functia care verifica daca s-a depasit limita pentru o anumita categorie, in cazul in care ca s-a depasit
     va fi afisata o alerta
     """
+    print("< Alerte depasiri >")
+    print(
+        "__________________________________________________________________________________________________")
     cursor.execute(""" SELECT valoare FROM factura where categorie='Marketing' """)
 
     data = cursor.fetchall()
@@ -131,7 +134,7 @@ def verifDepasire(dictionar_praguri):
         suma = suma + row[0]
     # print("Suma totala obtinuta din factorile din categoria 'Marketing' este",suma)
     if suma > dictionar_praguri['Marketing']:
-        print("\nAtentie, bugetul alocat pentru categoria 'Marketing' a fost depasit cu",
+        print("Atentie, bugetul alocat pentru categoria 'Marketing' a fost depasit cu",
               suma - dictionar_praguri['Marketing'], "RON.")
 
     cursor.execute(""" SELECT valoare FROM factura where categorie='Salarii' """)
@@ -142,7 +145,7 @@ def verifDepasire(dictionar_praguri):
         suma = suma + row[0]
     # print("Suma totala obtinuta din factorile din categoria 'Salarii' este",suma)
     if suma > dictionar_praguri['Salarii']:
-        print("\nAtentie, bugetul alocat pentru categoria 'Salarii' a fost depasit cu",
+        print("Atentie, bugetul alocat pentru categoria 'Salarii' a fost depasit cu",
               suma - dictionar_praguri['Salarii'], "RON.")
 
     cursor.execute(""" SELECT valoare FROM factura where categorie='Tehnologie' """)
@@ -153,7 +156,7 @@ def verifDepasire(dictionar_praguri):
         suma = suma + row[0]
     # print("Suma totala obtinuta din factorile din categoria 'Tehnologie' este",suma)
     if suma > dictionar_praguri['Tehnologie']:
-        print("\nAtentie, bugetul alocat pentru categoria 'Tehnologie' a fost depasit cu",
+        print("Atentie, bugetul alocat pentru categoria 'Tehnologie' a fost depasit cu",
               suma - dictionar_praguri['Tehnologie'], "RON.")
 
     cursor.execute(""" SELECT valoare FROM factura where categorie='Echipamente' """)
@@ -164,7 +167,7 @@ def verifDepasire(dictionar_praguri):
         suma = suma + row[0]
     # print("Suma totala obtinuta din factorile din categoria 'Echipamente' este",suma)
     if suma > dictionar_praguri['Echipamente']:
-        print("\nAtentie, bugetul alocat pentru categoria 'Echipamente' a fost depasit cu",
+        print("Atentie, bugetul alocat pentru categoria 'Echipamente' a fost depasit cu",
               suma - dictionar_praguri['Echipamente'], "RON.")
 
     cursor.execute(""" SELECT valoare FROM factura where categorie='Transport' """)
@@ -175,7 +178,7 @@ def verifDepasire(dictionar_praguri):
         suma = suma + row[0]
     # print("Suma totala obtinuta din factorile din categoria 'Transport' este",suma)
     if suma > dictionar_praguri['Transport']:
-        print("\nAtentie, bugetul alocat pentru categoria 'Transport' a fost depasit cu",
+        print("Atentie, bugetul alocat pentru categoria 'Transport' a fost depasit cu",
               suma - dictionar_praguri['Transport'], "RON.")
 
     cursor.execute(""" SELECT valoare FROM factura where categorie='Chirie' """)
@@ -186,7 +189,7 @@ def verifDepasire(dictionar_praguri):
         suma = suma + row[0]
     # print("Suma totala obtinuta din factorile din categoria 'Chirie' este",suma)
     if suma > dictionar_praguri['Chirie']:
-        print("\nAtentie, bugetul alocat pentru categoria 'Chirie' a fost depasit cu",
+        print("Atentie, bugetul alocat pentru categoria 'Chirie' a fost depasit cu",
               suma - dictionar_praguri['Chirie'], "RON.")
 
     cursor.execute(""" SELECT valoare FROM factura where categorie='Utilitati' """)
@@ -197,7 +200,7 @@ def verifDepasire(dictionar_praguri):
         suma = suma + row[0]
     # print("Suma totala obtinuta din factorile din categoria 'Utilitati' este", suma)
     if suma > dictionar_praguri['Utilitati']:
-        print("\nAtentie, bugetul alocat pentru categoria 'Utilitati' a fost depasit cu",
+        print("Atentie, bugetul alocat pentru categoria 'Utilitati' a fost depasit cu",
               suma - dictionar_praguri['Utilitati'], "RON.")
 
     cursor.execute(""" SELECT valoare FROM factura where categorie='Consumabile' """)
@@ -208,7 +211,7 @@ def verifDepasire(dictionar_praguri):
         suma = suma + row[0]
     # print("Suma totala obtinuta din factorile din categoria 'Consumabile' este",suma)
     if suma > dictionar_praguri['Consumabile']:
-        print("\nAtentie, bugetul alocat pentru categoria 'Consumabile' a fost depasit cu",
+        print("Atentie, bugetul alocat pentru categoria 'Consumabile' a fost depasit cu",
               suma - dictionar_praguri['Consumabile'], "RON.")
 
     cursor.execute(""" SELECT valoare FROM factura where categorie='Calatorii' """)
@@ -219,7 +222,7 @@ def verifDepasire(dictionar_praguri):
         suma = suma + row[0]
     # print("Suma totala obtinuta din factorile din categoria 'Calatorii' este",suma)
     if suma > dictionar_praguri['Calatorii']:
-        print("\nAtentie, bugetul alocat pentru categoria 'Calatorii' a fost depasit cu",
+        print("Atentie, bugetul alocat pentru categoria 'Calatorii' a fost depasit cu",
               suma - dictionar_praguri['Calatorii'], "RON.")
 
     cursor.execute(""" SELECT valoare FROM factura where categorie='Diverse' """)
@@ -230,8 +233,10 @@ def verifDepasire(dictionar_praguri):
         suma = suma + row[0]
     # print("Suma totala obtinuta din factorile din categoria 'Diverse' este",suma)
     if suma > dictionar_praguri['Diverse']:
-        print("\nAtentie, bugetul alocat pentru categoria 'Diverse' a fost depasit cu",
+        print("Atentie, bugetul alocat pentru categoria 'Diverse' a fost depasit cu",
               suma - dictionar_praguri['Diverse'], "RON.")
+    print(
+        "__________________________________________________________________________________________________")
 
 
 def afisareIstoric():

@@ -1,7 +1,0 @@
-{
-    "Furnizor":"101Calatorii",
-    "Tip":"Calatorie in Franta",
-    "Data":"15/05/2020",
-    "Categorie":"Calatorii",
-    "Valoare":3500
-}
